@@ -129,7 +129,7 @@ def main():
             color: #2c3e50;
         }
         .stTextInput > div > div > input {
-            background-color: #ADD8E6;
+            background-color: #3498db;
         }
         .stButton > button {
             background-color: #3498db;
