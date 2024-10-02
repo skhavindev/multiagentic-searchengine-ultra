@@ -119,7 +119,7 @@ def main():
     # Custom CSS
     st.markdown("""
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet');
         
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
