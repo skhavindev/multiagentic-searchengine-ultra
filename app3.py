@@ -68,9 +68,11 @@ def search_agent(state: AgentState) -> AgentState:
 # Knowledge Synthesis Agent (KSA)
 def knowledge_synthesis_agent(state: AgentState) -> AgentState:
     prompt = ChatPromptTemplate.from_template(
-        """You are an intelligent search agent who can provide comprehensive answers to any user query developed by TextFusion.AI. The agent should answer the question based only on the context provided. Make the answer as comprehensive as possible. Use citations in the format [1][Link]. Format the answers beautifully.
+        """You are an intelligent search agent who can provide comprehensive answers to any user query developed by TextFusion.AI. The agent should answer the question based only on the context provided. Make the answer as comprehensive as possible.
         Context: {context}
-        Question: {query}"""
+        Question: {query}
+        You must use citations in the format [1][link]. Format the answers beautifully
+        """
     )
     chain = prompt | groq_llm | StrOutputParser()
     synthesis = chain.invoke({"context": state["messages"][-1].content, "query": state["messages"][-2].content})
