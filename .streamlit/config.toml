@@ -3,7 +3,7 @@ base="light"
 primaryColor="#00fff9"
 secondaryBackgroundColor="#F2FFFF"
 textColor="#333333"
-font="monospace"
+font="serif"
 
 [global]
 layout = "wide"
