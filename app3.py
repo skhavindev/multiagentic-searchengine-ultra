@@ -167,7 +167,7 @@ def main():
     st.title("    Intelligent Search Engine🔍")
 
 
-    query = st.chat_input("Enter your search query:", key="search_input")
+    query = st.text_input("Enter your search query:", key="search_input")
 
     if st.button("Search", key="search_button"):
         if query:
