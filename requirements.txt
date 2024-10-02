@@ -1,2 +1,4 @@
 langchain
 langgraph
+duckduckgo_search
+typing
