@@ -138,8 +138,6 @@ def main():
         .result-box {
             background-color: #ecf0f1;
             border-radius: 10px;
-            padding: 0px;
-            margin-top: 20px;
         }
         </style>
     """, unsafe_allow_html=True)
