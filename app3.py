@@ -122,14 +122,14 @@ def main():
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
         .stApp {
-            font-family: 'Roboto', monospace;
+            font-family: 'Roboto', 'Serif';
         }
         .stTitle, .stSubheader {
-            font-family: 'Roboto', monospace;
+            font-family: 'Roboto', 'Serif';
             color: #2c3e50;
         }
         .stTextInput > div > div > input {
-            background-color: #f1f3f5;
+            background-color: #ADD8E6;
         }
         .stButton > button {
             background-color: #3498db;
@@ -138,7 +138,7 @@ def main():
         .result-box {
             background-color: #ecf0f1;
             border-radius: 10px;
-            padding: 20px;
+            padding: 0px;
             margin-top: 20px;
         }
         </style>
