@@ -2,7 +2,7 @@
 base="light"
 primaryColor="#00fff9"
 secondaryBackgroundColor="#F2FFFF"
-textColor="#2F2F2F"
+textColor="#333333"
 font="monospace"
 
 [global]
