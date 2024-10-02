@@ -116,6 +116,15 @@ def main():
         initial_sidebar_state="collapsed",
     )
 
+    st.markdown("""
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    """, unsafe_allow_html=True)
+
+    # Load Material Icons
+    st.markdown("""
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    """, unsafe_allow_html=True)
+    
     # Custom CSS
     st.markdown("""
         <style>
@@ -155,8 +164,8 @@ def main():
         </style>
     """, unsafe_allow_html=True)
 
-    st.title("Intelligent Search Engine🔍")
-    st.subheader("Powered by TextFusion.AI")
+    st.title("    Intelligent Search Engine🔍")
+
 
     query = st.text_input("Enter your search query:", key="search_input")
 
