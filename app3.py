@@ -152,7 +152,7 @@ def main():
         </style>
     """, unsafe_allow_html=True)
 
-    st.title("AI Search Ultra🔍")
+    st.title("Intelligent Search Engine🔍")
     st.subheader("Powered by TextFusion.AI")
 
     query = st.text_input("Enter your search query:", key="search_input")
