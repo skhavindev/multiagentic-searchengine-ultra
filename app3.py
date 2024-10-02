@@ -120,14 +120,24 @@ def main():
     st.markdown("""
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+        
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        
+        .viewerBadge_link__1S137, .viewerBadge_container__1QSob { 
+        visibility: hidden;
+        display: none;
+        }
 
         .stApp {
-            font-family: 'Roboto', 'Serif';
+            font-family: 'DM Serif Display', serif;
         }
         .stTitle, .stSubheader {
-            font-family: 'Roboto', 'Serif';
-            color: #2c3e50;
+            font-family: 'DM Serif Display', serif;
         }
+
+        
         .stTextInput > div > div > input {
             background-color: #F2FFFF;
         }
