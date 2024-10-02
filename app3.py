@@ -12,7 +12,7 @@ from duckduckgo_search import DDGS
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "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")
 
 # Initialize components
-model_name = "mixtral-8x7b-32768"
+model_name = "llama3-70b-8192"
 groq_llm = ChatGroq(temperature=0, model_name=model_name, groq_api_key=GROQ_API_KEY)
 
 
