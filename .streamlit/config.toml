@@ -1,0 +1,13 @@
+[theme]
+base="light"
+primaryColor="#00fff9"
+secondaryBackgroundColor="#f5f5f5"
+textColor="2F2F2F"
+font="monospace"
+
+[global]
+layout = "wide"
+hideStreamlitFooter = true
+
+[runner]
+toolbarMode = "minimal"
