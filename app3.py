@@ -24,7 +24,7 @@ class AgentState(TypedDict):
 # Query Processing Agent (QPA)
 def query_processing_agent(state: AgentState) -> AgentState:
     prompt = ChatPromptTemplate.from_template(
-        " {query} : Provide user query and Generate Search query in the format user query:, search query:"
+        " {query} : Provide user query and Generate Search query in the format user query:, search query: If search query not required, just send user message directly. Do Not Hallucinate"
     )
     chain = prompt | groq_llm | StrOutputParser()
     optimized_query = chain.invoke({"query": state["messages"][-1].content})
