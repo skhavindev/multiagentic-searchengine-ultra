@@ -24,7 +24,7 @@ class AgentState(TypedDict):
 # Query Processing Agent (QPA)
 def query_processing_agent(state: AgentState) -> AgentState:
     prompt = ChatPromptTemplate.from_template(
-        " {query} : Provide user query and Generate Search query in the format user query:, search query: If search query not required, just send user message directly. Do Not Hallucinate"
+        " {query} : Provide user query and Generate Search query. If search query not required, just send user message directly. DO NOT HALLUCINATE \n user query:, search query:"
     )
     chain = prompt | groq_llm | StrOutputParser()
     optimized_query = chain.invoke({"query": state["messages"][-1].content})
@@ -71,7 +71,7 @@ def knowledge_synthesis_agent(state: AgentState) -> AgentState:
         """You are an intelligent search agent developed by TextFusion.AI who can provide comprehensive answers to any user query. The agent should answer the question based only on the context provided. You have the ability to search the internet. Make the answer as comprehensive as possible.
         Context: {context}
         Question: {query}
-        You must use citations in the format [1][link]. Format the answers beautifully
+        You must use citations in the format [1][link] Don't hallucintate the citations. Format the answers beautifully
         """
     )
     chain = prompt | groq_llm | StrOutputParser()
