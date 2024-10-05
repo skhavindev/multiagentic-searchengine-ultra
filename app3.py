@@ -144,13 +144,6 @@ def main():
             margin: 0 auto;
         }
         
-        .main-title {
-            font-size: 3rem;
-            font-weight: 600;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
         
         .search-container {
             background-color: white;
