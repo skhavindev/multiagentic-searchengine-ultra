@@ -108,70 +108,117 @@ graph = workflow.compile()
 def run_graph(query: str):
     return graph.invoke({"messages": [HumanMessage(content=query)], "next_step": "query_processing_agent"})
 
-
-# Streamlit app
 def main():
     st.set_page_config(
         page_title="Intelligent Search Engine",
         page_icon="🔍",
         layout="wide",
-        initial_sidebar_state="collapsed",
+        initial_sidebar_state="expanded",
     )
 
-    st.markdown("""
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-    """, unsafe_allow_html=True)
-
-    # Load Material Icons
-    st.markdown("""
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    """, unsafe_allow_html=True)
-    
     # Custom CSS
     st.markdown("""
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         
-        #MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
-        header {visibility: hidden;}
-        
-        .viewerBadge_link__1S137, .viewerBadge_container__1QSob { 
-        visibility: hidden;
-        display: none;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff;
         }
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-
+        
         .stApp {
-            font-family: 'DM Serif Display', serif;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .stTitle, .stSubheader {
-            font-family: 'DM Serif Display', serif;
+        
+        .main-title {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 2rem;
         }
-
+        
+        .search-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
         
         .stTextInput > div > div > input {
-            background-color: #F2FFFF;
+            background-color: #f7f9fc;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
         }
+        
         .stButton > button {
             background-color: #3498db;
             color: white;
+            border-radius: 25px;
+            padding: 0.5rem 2rem;
+            font-weight: 600;
+            border: none;
+            transition: background-color 0.3s ease;
         }
+        
+        .stButton > button:hover {
+            background-color: #2980b9;
+        }
+        
         .result-box {
-            background-color: #ecf0f1;
+            background-color: white;
             border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sidebar-content {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        
+        .sidebar-header {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .sidebar-stats {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .clear-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .clear-button:hover {
+            background-color: #c0392b;
         }
         </style>
     """, unsafe_allow_html=True)
 
-    st.title("    Intelligent Search Engine🔍")
+    st.markdown('<h1 class="main-title">Intelligent Search Engine 🔍</h1>', unsafe_allow_html=True)
 
+    with st.container():
+        st.markdown('<div class="search-container">', unsafe_allow_html=True)
+        query = st.text_input("Enter your search query:", key="search_input")
+        search_button = st.button("Search", key="search_button")
+        st.markdown('</div>', unsafe_allow_html=True)
 
-    query = st.text_input("Enter your search query:", key="search_input")
-
-    if st.button("Search", key="search_button"):
+    if search_button:
         if query:
             with st.spinner("Searching..."):
                 result = run_graph(query)
@@ -185,26 +232,31 @@ def main():
             st.warning("Please enter a search query.")
 
     with st.sidebar:
-        st.header("📊 Search Statistics")
+        st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
+        st.markdown('<h2 class="sidebar-header">📊 Search Statistics</h2>', unsafe_allow_html=True)
         st.markdown("""
+        <div class="sidebar-stats">
         - Queries processed today: 1,234
         - Average response time: 0.8s
         - Satisfaction rate: 98%
-        """)
+        </div>
+        """, unsafe_allow_html=True)
 
-        st.header("ℹ️ About")
+        st.markdown('<h2 class="sidebar-header">ℹ️ About</h2>', unsafe_allow_html=True)
         st.markdown("""
+        <div class="sidebar-stats">
         This intelligent search engine uses advanced AI techniques to provide comprehensive and accurate results.
 
         Powered by TextFusion.AI technology.
-        """)
+        </div>
+        """, unsafe_allow_html=True)
 
         st.write("© 2024 TextFusion.AI")
 
-        if st.button("Clear Search History", key="clear_button"):
+        if st.button("Clear Search History", key="clear_button", help="Click to clear your search history"):
             # Add functionality to clear search history if needed
             st.success("Search history cleared!")
-
+        st.markdown('</div>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
