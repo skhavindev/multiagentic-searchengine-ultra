@@ -120,16 +120,6 @@ from langchain_groq import ChatGroq
 from langgraph.graph import StateGraph, END
 from duckduckgo_search import DDGS
 
-import streamlit as st
-import os
-from typing import Annotated, TypedDict
-from langchain_core.messages import HumanMessage, AIMessage
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from langchain_groq import ChatGroq
-from langgraph.graph import StateGraph, END
-from duckduckgo_search import DDGS
-
 # ... (keep the existing imports and setup code)
 
 # Streamlit app
@@ -145,6 +135,7 @@ def main():
     st.markdown("""
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
         
         body {
             font-family: 'Caudex', serif;
@@ -206,6 +197,7 @@ def main():
             padding: 1.5rem;
             margin-top: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Gilda Display', serif !important;
         }
         
         .sidebar-content {
@@ -258,8 +250,8 @@ def main():
                     final_response = result["messages"][-1].content
 
                 st.markdown('<div class="result-box">', unsafe_allow_html=True)
-                st.markdown("### Search Results")
-                st.markdown(final_response, unsafe_allow_html=True)
+                st.markdown('<h3 style="font-family: \'Caudex\', serif;">Search Results</h3>', unsafe_allow_html=True)
+                st.markdown(f'<div style="font-family: \'Gilda Display\', serif;">{final_response}</div>', unsafe_allow_html=True)
                 st.markdown('</div>', unsafe_allow_html=True)
             else:
                 st.warning("Please enter a search query.")
