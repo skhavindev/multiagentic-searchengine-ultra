@@ -182,7 +182,7 @@ def main():
             background-color: #2980b9;
         }
         
-        .result-box {
+        .div.stElementContainer.element-container.st-emotion-cache-1bfstq4.e1f1d6gn4 {
             background-color: white;
             border-radius: 10px;
             padding: 1.5rem;
