@@ -132,7 +132,7 @@ def main():
     # Custom CSS
     st.markdown("""
         <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
         
         body {
             font-family: 'Poppins', sans-serif;
@@ -217,7 +217,12 @@ def main():
         </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<h1 class="main-title">Intelligent Search Engine 🔍</h1>', unsafe_allow_html=True)
+    st.markdown (
+    """
+    <h1 style="font-family: 'Caudex', serif;">Intelligent Search Engine</h1>
+    """,
+    unsafe_allow_html=True,
+)
 
     with st.container():
         st.markdown('<div class="search-container">', unsafe_allow_html=True)
