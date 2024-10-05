@@ -108,6 +108,19 @@ graph = workflow.compile()
 def run_graph(query: str):
     return graph.invoke({"messages": [HumanMessage(content=query)], "next_step": "query_processing_agent"})
 
+import streamlit as st
+import os
+from typing import Annotated, TypedDict
+from langchain_core.messages import HumanMessage, AIMessage
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_groq import ChatGroq
+from langgraph.graph import StateGraph, END
+from duckduckgo_search import DDGS
+
+# ... (keep the existing imports and setup code)
+
+# Streamlit app
 def main():
     st.set_page_config(
         page_title="Intelligent Search Engine",
@@ -144,6 +157,7 @@ def main():
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
         }
         
         .stTextInput > div > div > input {
@@ -218,18 +232,18 @@ def main():
         search_button = st.button("Search", key="search_button")
         st.markdown('</div>', unsafe_allow_html=True)
 
-    if search_button:
-        if query:
-            with st.spinner("Searching..."):
-                result = run_graph(query)
-                final_response = result["messages"][-1].content
+        if search_button:
+            if query:
+                with st.spinner("Searching..."):
+                    result = run_graph(query)
+                    final_response = result["messages"][-1].content
 
-            st.markdown("### Search Results")
-            st.markdown('<div class="result-box">', unsafe_allow_html=True)
-            st.write(final_response)
-            st.markdown('</div>', unsafe_allow_html=True)
-        else:
-            st.warning("Please enter a search query.")
+                st.markdown('<div class="result-box">', unsafe_allow_html=True)
+                st.markdown("### Search Results")
+                st.write(final_response)
+                st.markdown('</div>', unsafe_allow_html=True)
+            else:
+                st.warning("Please enter a search query.")
 
     with st.sidebar:
         st.markdown('<div class="sidebar-content">', unsafe_allow_html=True)
