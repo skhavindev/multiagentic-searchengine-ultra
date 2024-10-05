@@ -253,7 +253,7 @@ def main():
 
                 st.markdown('<div class="result-box">', unsafe_allow_html=True)
                 st.markdown('<h3 style="font-family: \'Caudex\', serif;">Search Results</h3>', unsafe_allow_html=True)
-                st.markdown(f'<div style="font-family: \'Gilda Display\', serif;">{final_response}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div style="font-family: \'Bodoni Moda\', serif;">{final_response}</div>', unsafe_allow_html=True)
                 st.markdown('</div>', unsafe_allow_html=True)
             else:
                 st.warning("Please enter a search query.")
