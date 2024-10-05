@@ -118,6 +118,16 @@ from langchain_groq import ChatGroq
 from langgraph.graph import StateGraph, END
 from duckduckgo_search import DDGS
 
+import streamlit as st
+import os
+from typing import Annotated, TypedDict
+from langchain_core.messages import HumanMessage, AIMessage
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_groq import ChatGroq
+from langgraph.graph import StateGraph, END
+from duckduckgo_search import DDGS
+
 # ... (keep the existing imports and setup code)
 
 # Streamlit app
@@ -135,7 +145,7 @@ def main():
         @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Caudex', serif;
             background-color: #f0f8ff;
         }
         
@@ -144,6 +154,17 @@ def main():
             margin: 0 auto;
         }
         
+        h1, h2, h3, p, .stTextInput label, .stButton, .sidebar-content {
+            font-family: 'Caudex', serif !important;
+        }
+        
+        .main-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
         
         .search-container {
             background-color: white;
@@ -159,6 +180,7 @@ def main():
             border-radius: 25px;
             padding: 0.5rem 1rem;
             font-size: 1rem;
+            font-family: 'Caudex', serif !important;
         }
         
         .stButton > button {
@@ -169,13 +191,14 @@ def main():
             font-weight: 600;
             border: none;
             transition: background-color 0.3s ease;
+            font-family: 'Caudex', serif !important;
         }
         
         .stButton > button:hover {
             background-color: #2980b9;
         }
         
-        .div.stElementContainer.element-container.st-emotion-cache-1bfstq4.e1f1d6gn4 {
+        .result-box {
             background-color: white;
             border-radius: 10px;
             padding: 1.5rem;
@@ -209,6 +232,7 @@ def main():
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            font-family: 'Caudex', serif !important;
         }
         
         .clear-button:hover {
@@ -217,12 +241,7 @@ def main():
         </style>
     """, unsafe_allow_html=True)
 
-    st.markdown (
-    """
-    <h1 style="font-family: 'Caudex', serif;">Intelligent Search Engine</h1>
-    """,
-    unsafe_allow_html=True,
-)
+    st.markdown('<h1 class="main-title">Intelligent Search Engine 🔍</h1>', unsafe_allow_html=True)
 
     with st.container():
         st.markdown('<div class="search-container">', unsafe_allow_html=True)
@@ -238,7 +257,7 @@ def main():
 
                 st.markdown('<div class="result-box">', unsafe_allow_html=True)
                 st.markdown("### Search Results")
-                st.write(final_response)
+                st.markdown(final_response, unsafe_allow_html=True)
                 st.markdown('</div>', unsafe_allow_html=True)
             else:
                 st.warning("Please enter a search query.")
@@ -263,7 +282,7 @@ def main():
         </div>
         """, unsafe_allow_html=True)
 
-        st.write("© 2024 TextFusion.AI")
+        st.markdown('<p>© 2024 TextFusion.AI</p>', unsafe_allow_html=True)
 
         if st.button("Clear Search History", key="clear_button", help="Click to clear your search history"):
             # Add functionality to clear search history if needed
