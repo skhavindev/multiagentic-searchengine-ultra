@@ -110,6 +110,7 @@ graph = workflow.compile()
 def run_graph(query: str):
     return graph.invoke({"messages": [HumanMessage(content=query)], "next_step": "query_processing_agent"})
 
+
 import streamlit as st
 import os
 from typing import Annotated, TypedDict
@@ -135,8 +136,6 @@ def main():
     st.markdown("""
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,6..96,400..900;1,6..96,400..900&display=swap'>
-
         
         body {
             font-family: 'Caudex', serif;
@@ -198,7 +197,6 @@ def main():
             padding: 1.5rem;
             margin-top: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-family: 'Gilda Display', serif !important;
         }
         
         .sidebar-content {
@@ -251,8 +249,8 @@ def main():
                     final_response = result["messages"][-1].content
 
                 st.markdown('<div class="result-box">', unsafe_allow_html=True)
-                st.markdown('<h3 style="font-family: \'Caudex\', serif;">Search Results</h3>', unsafe_allow_html=True)
-                st.markdown(f'<div style="font-family: \'Bodoni Moda\', serif;">{final_response}</div>', unsafe_allow_html=True)
+                st.markdown("### Search Results")
+                st.markdown(final_response, unsafe_allow_html=True)
                 st.markdown('</div>', unsafe_allow_html=True)
             else:
                 st.warning("Please enter a search query.")
