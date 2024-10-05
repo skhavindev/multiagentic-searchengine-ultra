@@ -135,8 +135,7 @@ def main():
     st.markdown("""
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap'>
+        @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,6..96,400..900;1,6..96,400..900&display=swap'>
 
         
         body {
