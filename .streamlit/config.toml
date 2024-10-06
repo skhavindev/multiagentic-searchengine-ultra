@@ -1,9 +1,9 @@
 [theme]
 primaryColor="#b2ffff"
-backgroundColor="#080808"
-secondaryBackgroundColor="#1a1110"
-textColor="#f0ffff"
-font = "serif"
+backgroundColor="#ffffff"
+secondaryBackgroundColor="#f0ffff"
+textColor="#252525"
+font="serif"
 
 [global]
 layout = "wide"
