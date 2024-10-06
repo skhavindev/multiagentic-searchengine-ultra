@@ -51,7 +51,7 @@ def search_agent(state: AgentState) -> AgentState:
     # Using DuckDuckGo to perform the search
     try:
         search_results = DDGS().text(query, max_results=3)  # Fetching top 3 results
-        formatted_results = "\n".join([f"{result['title']}: {result['href']}" for result in search_results])
+        formatted_results = "\n".join([f"{result['title']}: {result['href']}: {result['body']}:" for result in search_results])
         return {"messages": state["messages"] + [AIMessage(content=formatted_results)],
                 "next_step": "knowledge_synthesis_agent"}
     except Exception as e:
