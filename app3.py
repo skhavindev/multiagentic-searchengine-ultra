@@ -24,7 +24,7 @@ class AgentState(TypedDict):
 # Query Processing Agent (QPA)
 def query_processing_agent(state: AgentState) -> AgentState:
     prompt = ChatPromptTemplate.from_template(
-        """ {query} : Provide user query and Generate Search query. If search query not required, just send user message directly. DO NOT HALLUCINATE 
+        """ {query} : Provide user query and Generate Search query DO NOT HALLUCINATE If search query not required, just send user message directly. 
          Send outputs in this format
          user query:, search query:"""
     )
