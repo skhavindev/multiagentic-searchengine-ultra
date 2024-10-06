@@ -25,7 +25,7 @@ class AgentState(TypedDict):
 def query_processing_agent(state: AgentState) -> AgentState:
     prompt = ChatPromptTemplate.from_template(
         """ {query} : Provide user query and Generate Search query DO NOT HALLUCINATE If search query not required, just send user message directly. 
-         Send outputs in this format
+         Output Format
          user query:, search query:"""
     )
     chain = prompt | groq_llm | StrOutputParser()
