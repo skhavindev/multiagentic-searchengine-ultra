@@ -139,7 +139,6 @@ def main():
         
         body {
             font-family: 'Caudex', serif;
-            background-color: #f0f8ff;
         }
         
         .stApp {
@@ -154,7 +153,7 @@ def main():
         .main-title {
             font-size: 3rem;
             font-weight: 700;
-            color: #2c3e50;
+            color: #252525;
             text-align: center;
             margin-bottom: 2rem;
         }
