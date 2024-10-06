@@ -3,7 +3,7 @@ primaryColor="#b2ffff"
 backgroundColor="#ffffff"
 secondaryBackgroundColor="#f0ffff"
 textColor="#252525"
-font = "sans serif"
+font = "serif"
 
 [global]
 layout = "wide"
