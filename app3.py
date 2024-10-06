@@ -159,13 +159,6 @@ def main():
             margin-bottom: 2rem;
         }
         
-        .search-container {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
         
         .stTextInput > div > div > input {
             background-color: #f7f9fc;
